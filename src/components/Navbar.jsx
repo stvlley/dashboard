@@ -17,8 +17,8 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       <span
         style={{ background: dotColor }}
         className='absolute inline-flexn rounded-full h-2 w-2 right-2 top-2'>
-        {icon}
       </span>
+        {icon}
     </button>
   </TooltipComponent>
 )
@@ -41,7 +41,6 @@ const Navbar = () => {
 
   useEffect(() => {
     if (screenSize <= 900) {
-      console.log('hello')
       setActiveMenu(false)
     } else {
       setActiveMenu(true)
