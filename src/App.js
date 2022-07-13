@@ -10,10 +10,9 @@ import { useStateContext } from './contexts/ContextProvider'
 
 const App = () => {
 
-    const { activeMenu, currentColor } = useStateContext()
- 
+  const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext(); 
     return (
-      <div >
+      <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
@@ -52,7 +51,7 @@ const App = () => {
               <Navbar />
             </div>
             <div>
-              {/* {themeSettings && (<ThemeSettings />)} */}
+              {themeSettings && (<ThemeSettings />)}
 
               <Routes>
                 {/* dashboard  */}
