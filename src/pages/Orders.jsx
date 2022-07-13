@@ -4,9 +4,23 @@ import { useStateContext } from '../contexts/ContextProvider'
 import { ordersData, contextMenuItems, ordersGrid } from '../data/dummy';
 import { Header } from '../components';
 
+
+
+
+
 const Orders = () => {
 
   const [reports, setReports] = useState([])
+  useEffect(() => {
+      fetch('https://data.austintexas.gov/resource/fdj4-gpfu.json')
+          .then(response => response.json())
+          .then(data => setReports(data))
+          .catch(err => console.error(err));
+  }, [])
+  console.log(reports)
+  const crimeType  = reports.map((report) =>report.crime_type)
+  console.log(crimeType)
+  
   const { currentMode } = useStateContext();
   const editing = { allowDeleting: true, allowEditing: true };
 
